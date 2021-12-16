@@ -24,7 +24,7 @@ class _RegisterPageState extends State<RegisterPage> {
         child: ListView(
           children: [
             DrawerHeader(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(
@@ -36,13 +36,13 @@ class _RegisterPageState extends State<RegisterPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 30.0,
                     backgroundImage: NetworkImage(
                       "https://m.media-amazon.com/images/I/61srwGulapL._AC_SX569_.jpg",
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15.0,
                   ),
                   Text(
@@ -52,18 +52,36 @@ class _RegisterPageState extends State<RegisterPage> {
                       fontSize: 18.0,
                     ),
                   ),
-                  SizedBox(
-                    height: 5.0,
-                  ),
                   Text(
                     "Programador",
                     style: GoogleFonts.montserrat(
                       color: Colors.white70,
-                      fontSize: 16.0,
+                      fontSize: 15.0,
                     ),
                   ),
                 ],
               ),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("My Profile"),
+            ),
+            ListTile(
+              leading: Icon(Icons.file_copy),
+              title: Text("Portfolio"),
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text("Settings"),
+            ),
+            ListTile(
+              leading: Icon(Icons.lock),
+              title: Text("Change password"),
+            ),
+            Divider(),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text("Logout"),
             ),
           ],
         ),
