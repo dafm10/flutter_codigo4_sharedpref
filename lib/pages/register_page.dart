@@ -1,8 +1,16 @@
 
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
+
+  bool darkMode = false;
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +22,7 @@ class RegisterPage extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 20.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               "Settings Page",
@@ -23,10 +32,32 @@ class RegisterPage extends StatelessWidget {
                 color: Color(0xff424242),
               ),
             ),
+            SizedBox(
+              height: 20.0,
+            ),
             TextField(
               decoration: InputDecoration(
-                hintText: "Nombres",
+                hintText: "Full name",
               ),
+            ),
+            SizedBox(
+              height: 20.0,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                hintText: "Address",
+              ),
+            ),
+            //Switch(value: true, onChanged: (bool value){}),
+            SwitchListTile(
+              value: darkMode,
+              title: Text("Darl Mode"),
+              onChanged: (bool value){
+                darkMode = value;
+                setState(() {
+
+                });
+              },
             ),
           ],
         ),
