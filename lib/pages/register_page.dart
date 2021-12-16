@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -73,34 +72,48 @@ class _RegisterPageState extends State<RegisterPage> {
               value: 1,
               groupValue: gender,
               title: Text("Male"),
-              onChanged: (int? value){
+              onChanged: (int? value) {
                 gender = value!;
-                setState(() {
-
-                });
+                setState(() {});
               },
             ),
             RadioListTile(
               value: 2,
               groupValue: gender,
               title: Text("Female"),
-              onChanged: (int? value){
+              onChanged: (int? value) {
                 gender = value!;
-                setState(() {
-
-                });
+                setState(() {});
               },
             ),
             RadioListTile(
               value: 3,
               groupValue: gender,
               title: Text("No definido"),
-              onChanged: (int? value){
+              onChanged: (int? value) {
                 gender = value!;
-                setState(() {
-
-                });
+                setState(() {});
               },
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            Container(
+              width: double.infinity,
+              height: 45.0,
+              child: ElevatedButton.icon(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.black87,
+                ),
+                onPressed: () {},
+                icon: Icon(Icons.save),
+                label: Text(
+                  "Save",
+                  style: TextStyle(
+                    fontSize: 18.0,
+                  ),
+                ),
+              ),
             ),
           ],
         ),
