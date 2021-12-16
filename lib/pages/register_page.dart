@@ -9,8 +9,8 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-
   bool darkMode = false;
+  int gender = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               "Settings Page",
               style: TextStyle(
                 fontSize: 30.0,
@@ -32,7 +32,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 color: Color(0xff424242),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
             TextField(
@@ -40,7 +40,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 hintText: "Full name",
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20.0,
             ),
             TextField(
@@ -52,8 +52,51 @@ class _RegisterPageState extends State<RegisterPage> {
             SwitchListTile(
               value: darkMode,
               title: Text("Darl Mode"),
-              onChanged: (bool value){
+              onChanged: (bool value) {
                 darkMode = value;
+                setState(() {});
+              },
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            const Text(
+              "Gender",
+              style: TextStyle(
+                fontSize: 18.0,
+              ),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            RadioListTile(
+              value: 1,
+              groupValue: gender,
+              title: Text("Male"),
+              onChanged: (int? value){
+                gender = value!;
+                setState(() {
+
+                });
+              },
+            ),
+            RadioListTile(
+              value: 2,
+              groupValue: gender,
+              title: Text("Female"),
+              onChanged: (int? value){
+                gender = value!;
+                setState(() {
+
+                });
+              },
+            ),
+            RadioListTile(
+              value: 3,
+              groupValue: gender,
+              title: Text("No definido"),
+              onChanged: (int? value){
+                gender = value!;
                 setState(() {
 
                 });
