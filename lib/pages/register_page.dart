@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo4_sharedpref/pages/profile_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -89,6 +90,9 @@ class _RegisterPageState extends State<RegisterPage> {
             ListTile(
               leading: Icon(Icons.person),
               title: Text("My Profile"),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=> ProfilePage()));
+              },
             ),
             ListTile(
               leading: Icon(Icons.file_copy),
