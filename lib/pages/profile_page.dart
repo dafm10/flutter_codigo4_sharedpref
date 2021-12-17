@@ -1,6 +1,6 @@
 
-
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -10,6 +10,30 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+
+  String fullName = "";
+  String address = "";
+  int gender = 0;
+  bool darkMode = false;
+
+  getDataRegister() async {
+    SharedPreferences _data = await SharedPreferences.getInstance();
+    fullName = _data.getString("fullName") ?? "";
+    address = _data.getString("address") ?? "";
+    gender = _data.getInt("gender") ?? 0;
+    darkMode = _data.getBool("darkMode") ?? false;
+    setState(() {
+
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getDataRegister();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,22 +56,23 @@ class _ProfilePageState extends State<ProfilePage> {
             ],
           ),
           child: Column(
+            // para que se adapte al tamaño de sus hijos
             mainAxisSize: MainAxisSize.min,
             children: [
               ListTile(
-                title: Text("Aquí va el nombre",),
+                title: Text(fullName),
                 subtitle: Text("Full Name",),
               ),
               ListTile(
-                title: Text("Aquí va la dirección",),
+                title: Text(address),
                 subtitle: Text("Address",),
               ),
               ListTile(
-                title: Text("Activo",),
+                title: darkMode == true ? Text("Enable") : Text("Disable"),
                 subtitle: Text("Dark Mode",),
               ),
               ListTile(
-                title: Text("Male",),
+                title: gender == 1 ? Text("Male") : Text("Female"),
                 subtitle: Text("Gender",),
               ),
             ],
