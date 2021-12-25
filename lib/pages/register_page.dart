@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo4_sharedpref/pages/profile_page.dart';
+import 'package:flutter_codigo4_sharedpref/utils/shared_preferences_global.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -14,22 +15,28 @@ class RegisterPage extends StatefulWidget {
 class _RegisterPageState extends State<RegisterPage> {
   bool darkMode = false;
   int gender = 1;
-  String fullName = "";
-  String address = "";
+  late int date;
 
   // siempre que usemos inputs debemos controlarlos
   TextEditingController fullNameControlled = TextEditingController();
   TextEditingController addressControlled = TextEditingController();
+  SharedPreferencesGlobal newModel = SharedPreferencesGlobal();
 
-  saveDataRegister() async {
-    SharedPreferences _data = await SharedPreferences.getInstance();
+  saveDataRegister() {
+/*    SharedPreferences _data = await SharedPreferences.getInstance();
 
     _data.setString("fullName", fullNameControlled.text);
     _data.setString("address", addressControlled.text);
     _data.setBool("darkMode", darkMode);
     _data.setInt("gender", gender);
 
-    print("Guardando datos...");
+    print("Guardando datos...");*/
+
+    newModel.fullName = fullNameControlled.text;
+    newModel.address = addressControlled.text;
+    newModel.darkMode = darkMode;
+    newModel.gender = gender;
+
   }
 
   @override

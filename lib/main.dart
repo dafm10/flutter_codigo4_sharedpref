@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_codigo4_sharedpref/pages/register_page.dart';
+import 'package:flutter_codigo4_sharedpref/utils/shared_preferences_global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-void main(){
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized(); // para decir que SP usará codigo nativo
+  SharedPreferencesGlobal prefs = SharedPreferencesGlobal();
+  await prefs.initShare();
   runApp(MyApp());
 }
 

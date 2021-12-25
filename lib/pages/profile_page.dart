@@ -68,11 +68,11 @@ class _ProfilePageState extends State<ProfilePage> {
                 subtitle: Text("Address",),
               ),
               ListTile(
-                title: darkMode == true ? Text("Enable") : Text("Disable"),
+                title: Text(darkMode ? "Actived" : "Desactived"),
                 subtitle: Text("Dark Mode",),
               ),
               ListTile(
-                title: gender == 1 ? Text("Male") : Text("Female"),
+                title: Text(gender == 1 ? "Male" : "Female"),
                 subtitle: Text("Gender",),
               ),
             ],
