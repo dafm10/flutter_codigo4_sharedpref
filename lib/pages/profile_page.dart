@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_codigo4_sharedpref/utils/shared_preferences_global.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -16,12 +17,19 @@ class _ProfilePageState extends State<ProfilePage> {
   int gender = 0;
   bool darkMode = false;
 
+  SharedPreferencesGlobal newProfile = SharedPreferencesGlobal();
+
   getDataRegister() async {
-    SharedPreferences _data = await SharedPreferences.getInstance();
+/*    SharedPreferences _data = await SharedPreferences.getInstance();
     fullName = _data.getString("fullName") ?? "";
     address = _data.getString("address") ?? "";
     gender = _data.getInt("gender") ?? 0;
-    darkMode = _data.getBool("darkMode") ?? false;
+    darkMode = _data.getBool("darkMode") ?? false;*/
+
+    fullName = newProfile.fullName;
+    address = newProfile.address;
+    darkMode = newProfile.darkMode;
+    gender = newProfile.gender;
     setState(() {
 
     });
